@@ -1,0 +1,400 @@
+[v-cloak] {
+    display: none;
+}
+
+/*Main pagina Tarjetas */
+
+
+.mainTarjetas {
+    background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    min-height: 65.3vh;
+}
+
+.imgCards {
+    position: absolute;
+    z-index: 1;
+    opacity: 0.2;
+    width: 60vw;
+    height: 60vh;
+}
+
+.contenidoCards {
+    z-index: 2;
+}
+
+/* Tarjetas */
+
+
+
+.cardBanco {
+    width: 320px;
+    height: 200px;
+    -webkit-perspective: 600px;
+    -moz-perspective: 600px;
+    perspective: 600px;
+}
+
+.colorDebitGold {
+    background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+        radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+}
+
+.colorDebitSilver {
+    background: linear-gradient(334deg, rgba(255, 255, 255, 0) -7.13%, rgba(255, 255, 255, 0.366417) -7.13%, rgba(255, 255, 255, 0.211921) 58.65%, #FDFDFD 76.89%, rgba(255, 255, 255, 0) 87.96%), radial-gradient(120.69% 120.69% at 16.67% -20.69%, #ACACAC 12.5%, rgba(149, 149, 149, 0.97) 55.56%, #D3D3D3 100%)
+}
+
+.colorDebitTitanium {
+    background:
+        linear-gradient(-72deg,
+            #dedede,
+            #ffffff 16%,
+            #dedede 21%,
+            #ffffff 24%,
+            #caa1de 27%,
+            #dea1ca 30%,
+            #dedede 38%,
+            #ffffff 45%,
+            #ffffff 60%,
+            #dedede 72%,
+            #ffffff 80%,
+            #dedede 84%,
+            #caa1de 93%,
+            #dea1ca);
+}
+
+.colorCreditGold {
+    background:
+        linear-gradient(-72deg,
+            #ffde45,
+            #ffffff 6%,
+            #ffde45 1%,
+            #ffffff 4%,
+            #452100 7%,
+            #ffde45 6%,
+            #ffffff 5%,
+            #ffffff 20%,
+            #ffde45 32%,
+            #ffffff 40%,
+            #ffde45 44%,
+            #452100);
+}
+
+.colorCreditSilver {
+    background:
+        linear-gradient(-72deg,
+            #dedede,
+            #ffffff 16%,
+            #dedede 21%,
+            #ffffff 24%,
+            #454545 27%,
+            #dedede 36%,
+            #ffffff 45%,
+            #ffffff 60%,
+            #dedede 72%,
+            #ffffff 80%,
+            #dedede 84%,
+            #a1a1a1);
+}
+
+.colorCreditTitanium {
+    background:
+        linear-gradient(-72deg,
+            #dedeff,
+            #ffffff 16%,
+            #dedeff 21%,
+            #ffffff 24%,
+            #555564 27%,
+            #dedeff 36%,
+            #ffffff 45%,
+            #ffffff 60%,
+            #dedeff 72%,
+            #ffffff 80%,
+            #dedeff 84%,
+            #555564);
+}
+
+.expired {
+    background: rgba(255, 0, 0, 0.182) !important;
+}
+
+.cardBanco__part {
+    box-shadow: 1px 1px #aaa3a3;
+    top: 0;
+    position: absolute;
+    z-index: 1000;
+    left: 0;
+    display: inline-block;
+    width: 320px;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 8px;
+    -webkit-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -moz-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -ms-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -o-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+}
+
+.cardBanco__front {
+    padding: 11px;
+    -webkit-transform: rotateY(0);
+    -moz-transform: rotateY(0);
+}
+
+.cardBanco__back {
+    /*     padding: 18px 0;
+ */
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+}
+
+.cardBanco__lineaArriba {
+    font-size: 8.5px;
+    margin: 0;
+    padding: 2px;
+}
+
+.cardBanco__black-line {
+    /*     margin-top: 5px;
+ */
+    height: 38px;
+    background-color: #303030;
+}
+
+.cardBanco_numer {
+    display: block;
+    width: 100%;
+    word-spacing: 4px;
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.cardBanco__space-40 {
+    width: 40%;
+    float: left;
+}
+
+.cardBanco__space-25 {
+    width: 25%;
+    float: left;
+    margin-left: 1rem;
+}
+
+
+.cardBanco__label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+.cardBanco__infoBack {
+    font-size: 10px;
+}
+
+.cardBanco__info {
+    margin-bottom: 0;
+    margin-top: 5px;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.cardBanco__back-content {
+    padding: 9px
+}
+
+.cardBanco__secret--last {
+    color: #303030;
+    text-align: right;
+    margin: 0;
+    font-size: 14px;
+}
+
+.cardBanco__secret {
+    padding: 5px 12px;
+    background-color: #fff;
+    position: relative;
+}
+
+.cardBanco__secret:before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    height: calc(100% + 6px);
+    width: calc(100% - 42px);
+    border-radius: 4px;
+    background: repeating-linear-gradient(45deg, #ededed, #ededed 5px, #f9f9f9 5px, #f9f9f9 10px);
+}
+
+.cardBanco__back-logo {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
+.cardBanco:hover .cardBanco__front {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+
+}
+
+.cardBanco:hover .cardBanco__back {
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+}
+
+.visa {
+    width: 85px;
+    height: 33px;
+    margin-left: 2px;
+}
+
+.azulVisa {
+    color: #0026ff;
+}
+
+/* chip */
+
+.chip {
+
+    position: relative;
+    top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 40px;
+    border-radius: 5px;
+    background-image: linear-gradient(to bottom left, #ffecc7, #d0b978);
+    overflow: hidden;
+}
+
+.chip-line {
+
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: #333;
+}
+
+.chip-line:nth-child(1) {
+
+    top: 13px;
+}
+
+.chip-line:nth-child(2) {
+    top: 20px;
+}
+
+.chip-line:nth-child(3) {
+    top: 28px;
+}
+
+.chip-line:nth-child(4) {
+    left: 25px;
+    width: 1px;
+    height: 50px;
+}
+
+.chip-main {
+    width: 20px;
+    height: 25px;
+    border: 1px solid #333;
+    border-radius: 3px;
+    background-image: linear-gradient(to bottom left, #efdbab, #e1cb94);
+    z-index: 1;
+}
+
+
+
+/* create Cards*/
+
+.fondoCreateCard {
+    position: absolute;
+    opacity: 0.3;
+    height: 70vh;
+    width: 70vw;
+    z-index: 1;
+}
+
+.create1 {
+    z-index: 2;
+}
+
+.form {
+    width: 170px;
+    padding: 0.5rem;
+}
+
+.inputButton {
+    width: 180px;
+    padding: 0.5rem;
+    margin-top: 1rem;
+}
+
+/*mediaqueries*/
+
+@media screen and (max-width: 1175px) {
+    .footer {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .footer {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .extras {
+        display: none;
+    }
+
+    .extrasT {
+        display: none;
+    }
+
+    .contenedoresTarjetas {
+        flex-direction: column;
+    }
+
+    .mainCreate {
+        flex-direction: column;
+        padding: 1rem;
+    }
+}
+
+@media screen and (max-width:380px) {
+    .contenedoresTarjetas {
+        width: 100%;
+    }
+
+    .cardBanco__part {
+        width: 300px;
+    }
+
+    .cardBanco {
+        width: 300px;
+    }
+
+    .cardBanco_numer {
+        font-size: 15px;
+    }
+
+    .mainTarjetas {
+        align-items: flex-start !important;
+    }
+}

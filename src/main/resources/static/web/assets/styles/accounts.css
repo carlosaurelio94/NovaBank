@@ -1,0 +1,601 @@
+.color {
+    background-image: linear-gradient(to bottom, #ff6767, #ff4545)
+}
+
+.colorInverso {
+    background-image: linear-gradient(to top, #ff6767, #ff4545)
+}
+
+.ojo {
+    cursor: pointer;
+}
+
+
+.offcanvas-body, .offcanvas-header {
+    background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    color: black;
+}
+
+.acordeon {
+    background-image: linear-gradient(to bottom, #ff6767, #ff4545);
+    color: black;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+.billetera {
+    color: rgb(240, 65, 65)
+}
+
+.contenedorIconos {
+    height: 4.2rem;
+    width: 5rem;
+    margin: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6px;
+    text-decoration: none;
+    color: black;
+}
+
+.icono {
+    font-size: 2rem;
+}
+
+.toggle {
+    display: none;
+}
+
+.cuadrado {
+    height: 100px;
+    width: 100px;
+    border: 4px solid;
+} 
+
+.circulo {
+    height: 100px;
+    width: 100px;
+    border: 4px solid;
+    border-radius: 50%;
+}
+
+.tarjetas {
+    display: flex;
+    gap: 3rem;
+}
+
+.prestamos {
+    display: flex;
+    gap: 3rem;
+    height: 100px;
+    width: 800px;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+    width: 420px;
+    height: 250px;
+    background-color: var(--cards-colorAntique);
+    border-radius: 5%;
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.8);
+}
+
+.cardsTarjetas {
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+    width: 0px;
+    height: 250px;
+    background-color: var(--cards-colorAntique);
+    border: 2px solid;
+    border-radius: 5%;
+}
+
+.createCard {
+    cursor: pointer;
+    background-color: rgb(234, 236, 237);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardPrestamo {
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+    min-width: 300px;
+    height: 210px;
+    background-color: var(--cards-colorAntique);
+    border-radius: 5%;
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.8);
+}
+
+.sub-cont {
+    display: flex;
+    gap: 1rem;
+}
+
+.sub-cont>a {
+    color: rgb(240, 65, 65);
+    font-size: 20px;
+}
+
+.z {
+    z-index: 900;
+}
+
+
+.divCreateCard {
+    text-decoration: none;
+    border: none;
+    text-align: center;
+    background: rgb(234, 236, 237);
+}
+
+/* Section Cards */
+
+.cardsContainer {
+    display: flex;
+    gap: 5rem;
+    padding: 1rem;
+    width: 80vw;
+    height: 50vh;
+    
+}
+.creditCardContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    
+}
+.cardContent {
+    display: flex;
+    justify-content: space-between;
+    width: 35vw;
+    height: 10vh;
+    background-color: var(--cards-colorAntique);
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    
+}
+.cardColor {
+    width: 10vw;
+    height: 10vh;
+    background: #000;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+.cardArticle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 5px;
+}
+.cardAnchor {
+    height: 10vh;
+    width: 10vw;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+}
+
+.cardAnchor > a  > span{
+    color: #0d6efd;
+    font-weight: bold;
+    font-size: 2rem;
+    text-decoration: none;
+}
+.cards:hover {
+    transform: translateY(15px);
+    transition: all 0.5s ease-in;
+}
+.cardPrestamo:hover {
+    transform: translateY(15px);
+    transition: all 0.5s ease-in;
+}
+/*Tarjetas colores */
+
+.colorDebitGold {
+    background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+        radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+}
+
+.colorDebitSilver {
+    background: linear-gradient(334deg, rgba(255, 255, 255, 0) -7.13%, rgba(255, 255, 255, 0.366417) -7.13%, rgba(255, 255, 255, 0.211921) 58.65%, #FDFDFD 76.89%, rgba(255, 255, 255, 0) 87.96%), radial-gradient(120.69% 120.69% at 16.67% -20.69%, #ACACAC 12.5%, rgba(149, 149, 149, 0.97) 55.56%, #D3D3D3 100%)
+}
+
+.colorDebitTitanium {
+    background:
+        linear-gradient(-72deg,
+            #dedede,
+            #ffffff 16%,
+            #dedede 21%,
+            #ffffff 24%,
+            #caa1de 27%,
+            #dea1ca 30%,
+            #dedede 38%,
+            #ffffff 45%,
+            #ffffff 60%,
+            #dedede 72%,
+            #ffffff 80%,
+            #dedede 84%,
+            #caa1de 93%,
+            #dea1ca);
+}
+
+.colorCreditGold {
+    background:
+        linear-gradient(-72deg,
+            #ffde45,
+            #ffffff 6%,
+            #ffde45 1%,
+            #ffffff 4%,
+            #452100 7%,
+            #ffde45 6%,
+            #ffffff 5%,
+            #ffffff 20%,
+            #ffde45 32%,
+            #ffffff 40%,
+            #ffde45 44%,
+            #452100);
+}
+
+.colorCreditSilver {
+    background:
+        linear-gradient(-72deg,
+            #dedede,
+            #ffffff 16%,
+            #dedede 21%,
+            #ffffff 24%,
+            #454545 27%,
+            #dedede 36%,
+            #ffffff 45%,
+            #ffffff 60%,
+            #dedede 72%,
+            #ffffff 80%,
+            #dedede 84%,
+            #a1a1a1);
+}
+
+.colorCreditTitanium {
+    background:
+        linear-gradient(-72deg,
+            #dedeff,
+            #ffffff 16%,
+            #dedeff 21%,
+            #ffffff 24%,
+            #555564 27%,
+            #dedeff 36%,
+            #ffffff 45%,
+            #ffffff 60%,
+            #dedeff 72%,
+            #ffffff 80%,
+            #dedeff 84%,
+            #555564);
+}
+
+/* Section and background */
+
+.sectionTitulo {
+    width: 100%;
+    min-height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    top: 0;
+    position: sticky;
+    z-index: 1;
+}
+
+.section:nth-child(1) {
+    justify-content: flex-start;
+    padding-top: 8rem;
+    background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    z-index: 2;
+}
+
+.section:nth-child(2) {
+    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    z-index: 3;
+}
+
+.section:nth-child(3) {
+    background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+    z-index: 4;
+}
+
+.section:nth-child(4) {
+    z-index: 5;
+    background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+}
+
+.fondo {
+    position: absolute;
+    z-index: -1;
+    opacity: 0.3;
+    align-self: flex-end;
+    height: 50vh;
+    width: 50vw;
+}
+
+.fondo2 {
+    position: absolute;
+    z-index: -1;
+    opacity: 0.3;
+    align-self: flex-start;
+    height: 50vh;
+    width: 50vw;
+}
+
+.fondo3 {
+    position: absolute;
+    z-index: -1;
+    opacity: 0.1;
+    align-self: center;
+    height: 58vh;
+    width: 58vw;
+}
+
+
+
+/* Mediaqueries */
+
+
+
+@media screen and (max-width: 1060px) {
+.cards:hover, .cardPrestamo:hover {
+    transform: translateY(5px);
+}
+
+    .cards {
+        height: 190px;
+        width: 450px;
+    }
+
+    .tarjetas {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .prestamos {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contenedorIconos {
+        width: 4rem;
+        height: 3rem;
+    }
+
+    .cardPrestamo {
+        height: 200px;
+        width: 350px;
+    }
+
+    .fecha {
+        display: none;
+    }
+    .cardsContainer {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .cardContent {
+        width: 60vw;
+        height: 4vh;
+    }
+    .cardArticle {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+    .cardColor, .cardAnchor {
+        height: 4vh;
+    }
+}
+
+@media screen and (max-width: 910px) {
+    .section {
+        height: 100vh;
+        justify-content: flex-start;
+    }
+
+    .section:nth-child(1) {
+        height: 100vh;
+        justify-content: center;
+    }
+
+    .cards {
+        height: 190px;
+        width: 450px;
+    }
+
+    .sub-cont>a {
+        font-size: 22px;
+    }
+
+    .botonSubir {
+        margin-top: 1rem;
+    }
+    .expiredWord {
+        display: none;
+    }
+    .red {
+        color: red !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .section:nth-child(1) {
+        height: 100vh;
+        justify-content: center;
+    }
+
+    .cards {
+        height: 180px;
+        width: 420px;
+    }
+
+    .tarjetas {
+        flex-direction: column;
+        margin-top: 1rem;
+        gap: 1rem;
+    }
+
+    h2 {
+        font-size: 3rem;
+        margin-top: 1rem;
+    }
+
+    .sub-cont>a {
+        font-size: 20px;
+    }
+
+    .contenedorIconos {
+        width: 112px;
+        height: 100px;
+        margin: 2px;
+    }
+
+    .icono {
+        font-size: 4rem;
+    }
+
+    .cardPrestamo {
+        height: 180px;
+        width: 350px;
+    }
+    .cardAnchor > a {
+        padding-right: 2px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .section {
+        height: 100vh;
+        justify-content: center;
+    }
+    
+    .cards {
+        width: 350px;
+        height: 170px;
+        padding: 8px;
+    }
+
+    .sub-cont {
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .sub-cont>a {
+        font-size: 17px;
+    }
+
+    .contenedorIconos {
+        width: 72px;
+        height: 70px;
+        margin: 2px;
+    }
+
+    .icono {
+        font-size: 3rem;
+    }
+
+    .cardPrestamo {
+        height: 170px;
+        width: 290px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .section {
+        height: 100vh;
+    }
+
+    .sub-cont {
+
+        gap: 1rem
+    }
+
+    h2 {
+        margin-top: 1rem;
+    }
+
+    .cards {
+        width: 350px;
+        height: 170px;
+        gap: 0;
+    }
+
+    .tarjetas {
+        gap: 1rem;
+    }
+
+    .contenedorIconos {
+        width: 62px;
+        height: 70px;
+        margin: 4px;
+    }
+
+    .textoTitulo {
+        display: none;
+    }
+    .textCard {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .section {
+        height: 100vh;
+    }
+
+    .sub-cont>a {
+        font-size: 15px;
+    }
+
+    .sub-cont {
+        gap: 1rem;
+    }
+
+    h2 {
+        margin-top: 1rem;
+    }
+
+    .cards {
+        width: 310px;
+        height: 160px;
+        gap: 0;
+    }
+
+    .cardPrestamo {
+        height: 160px;
+        width: 270px;
+    }
+
+    .contenedorIconos {
+        width: 52px;
+        height: 70px;
+        margin: 4px;
+    }
+
+    .numeroTarjeta {
+        font-size: 20px !important;
+    }
+    
+}

@@ -1,0 +1,87 @@
+.mainLoan {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+
+}
+
+.imgLoan {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    opacity: 0.2;
+    z-index: 1;
+    height: 70vh;
+    width: 70vw;
+}
+
+h1 {
+    z-index: 2;
+}
+
+.amountCorrect {
+    background-color: rgb(42, 148, 42);
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+    color: white;
+    padding: 0.5rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.amountIncorrect {
+    background-color: rgb(240, 65, 65);
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+    color: white;
+    padding: 0.5rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.formularios {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1rem;
+    z-index: 2;
+}
+
+textarea {
+    resize: none;
+}
+
+.finalLoan {
+    width: 250px;
+    height: 220px;
+    background: var(--cards-colorAntique);
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.formLoan {
+    width: 240px
+}
+
+.buttonAmount {
+    border: none;
+    background-color: antiquewhite;
+    font-weight: 700;
+}
+
+@media screen and(max-width: 768px) {
+    .mainLoan {
+        display: block;
+    }
+    .formularios {
+        flex-direction: row;
+    }
+    form {
+        width: 60vw;
+    }
+    
+}

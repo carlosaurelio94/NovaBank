@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
+    <title>Create cards</title>
+    <link rel="stylesheet" href="./assets/styles/style.css">
+    <link rel="stylesheet" href="./assets/styles/cards.css">
+</head>
+
+<body>
+    <div id="app">
+        <header class="sticky-top">
+            <nav class="navbar navbar-expand-lg nav-header color">
+                <div class="container-fluid color d-flex gap-3">
+                    <span class="material-symbols-outlined display-1 banco">account_balance</span>
+                    <a class="navbar-brand fs-3 fw-bolder titulo" href="./index.html">Banco Nova</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link fs-3 text-dark" href="./index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fs-3 text-dark" href="./accounts.html">Accounts</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bolder fs-3" aria-current="page" id="active" href="#">Cards</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fs-3 text-dark" href="./transfers.html">Transfers</a>
+                            </li>
+                            
+                        </ul>
+                      <!--   <div class="d-flex gap-5" v-if="!cuentas.length">
+                            <a href="./login.html"
+                                class="navbar-text text-decoration-none p-1 text-dark bg-light rounded-1 d-flex flex-column align-items-center"><span
+                                    class="material-symbols-outlined">login</span>
+                                <p>Login</p>
+                            </a>
+                            <span class="navbar-text fs-5 text-light rounded-circle p-2 bg-dark align-self-center"
+                                v-cloak>{{horaActual()}}</span>
+                        </div>
+                        <div class="d-flex gap-5" v-if="!cuentas.length">
+
+                            <a href="./login.html" class="contenedorIconos">
+                                <span class="material-symbols-outlined icono fs-2">login</span>
+                                <p>Login</p>
+                            </a>
+                            <span class="navbar-text fs-5 text-light rounded-circle p-2 bg-dark align-self-center"
+                                v-cloak>{{horaActual()}}</span>
+                        </div> -->
+                        <div class="d-flex" v-if="cuentas.length">
+                            <a class="contenedorIconos" href="./payments.html">
+                                <span class="material-symbols-outlined icono fs-2">payments</span>
+                                <p>Payments</p>
+                            </a>
+                            <a href="./index.html" class="contenedorIconos" @click="cerrarSesion">
+                                <span class="material-symbols-outlined icono fs-2">logout</span>
+                                <p>Logout</p>
+                            </a>
+                            <span class="navbar-text fs-5 text-light rounded-2 p-2 bg-dark align-self-center"
+                                v-cloak>{{horaActual()}}</span>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main class="mainCreate d-flex w-100" id="inicio">
+            <img src="./assets/img/credit_card.svg" alt="" class="fondoCreateCard">
+
+            <div class="d-flex flex-column align-items-center w-50 m-4  create1">
+                <fieldset class="rounded-2 form">
+                    <legend>Card type:</legend>
+                    <select v-model="tipo" class="form form-select fs-5 fw-bold" name="type" id="type">
+                        <option value="CREDIT">Credit</option>
+                        <option value="DEBIT">Debit</option>
+                    </select>
+                </fieldset>
+
+                <fieldset class="rounded-2 form">
+                    <legend>Card color:</legend>
+                    <select v-model="color" class="form form-select fs-5 fw-bold" name="color" id="color">
+                        <option value="GOLD">Gold</option>
+                        <option value="SILVER">Silver</option>
+                        <option value="TITANIUM">Titanium</option>
+                    </select>
+                    
+                </fieldset>
+                <fieldset class="rounded-2 form">
+                    <legend>Card number:</legend>
+                    <select v-model="number" class="form form-select fs-5 fw-bold" name="number" id="number">
+                        <template v-for="cuenta of cuentas">
+                            <option :value="cuenta.number">{{cuenta.number}}</option>
+                        </template>
+                    </select>
+                    
+                </fieldset>
+                <fieldset>
+                    <input type="submit" @click="crearTarjetas"
+                    class="btn btn-light  border border-2 border-secondary inputButton" value="Create card!">
+                </fieldset>
+            </div>
+
+
+
+
+            <div class="cardBanco mt-5 create1 w-50" v-if="tipo == 'CREDIT'">
+                <div class="cardBanco__front cardBanco__part colorCreditGold"
+                    :class="{ colorCreditGold: color == 'GOLD', colorCreditSilver: color == 'SILVER', colorCreditTitanium: color == 'TITANIUM' }">
+                    <div class="d-flex gap-2">
+                        <span
+                            class="material-symbols-outlined fs-3 fw-bold text-light banco border border-2 border-danger p-2 rounded-4 bg-danger mb-2">account_balance</span>
+                        <p class="fs-4 fw-bold">Nova Bank</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="chip">
+                            <div class="chip-line"></div>
+                            <div class="chip-line"></div>
+                            <div class="chip-line"></div>
+                            <div class="chip-line"></div>
+                            <div class="chip-main"></div>
+                        </div>
+                        <p class="cardBanco_numer fw-bold" id='tarjeta.number'>**** **** **** ****
+                        </p>
+                    </div>
+                    <div class="cardBanco__space-40">
+                        <span class="cardBanco__label fw-bold">Card holder</span>
+                        <p class="cardBanco__info fw-bolder">{{nombreCompleto.slice(0, 10)}}</p>
+                    </div>
+                    <div class="cardBanco__space-25">
+                        <span class="cardBanco__label fw-bold">Valid thru</span>
+                        <p class="cardBanco__info fw-bolder">xx/xx</p>
+                    </div>
+                    <div class="d-flex flex-column">
+                        <img src="./assets/img/visa.svg" alt="Logo de Visa" class=" bg-light visa p-1 mt-3">
+                    </div>
+                </div>
+                <div class="cardBanco__back cardBanco__part colorCreditGold"
+                    :class="{ colorCreditGold: color == 'GOLD', colorCreditSilver: color == 'SILVER', colorCreditTitanium: color == 'TITANIUM' }">
+                    <p class="cardBanco__lineaArriba">Customer support center: 0810-345-8252. From another country
+                        (5411)3984-8252
+                    </p>
+                    <div class="cardBanco__black-line"></div>
+                    <div class="cardBanco__back-content">
+                        <div class="cardBanco__secret">
+                            <p class="cardBanco__secret--last">xxx</p>
+                        </div>
+                        <div class="cardBanco__back-content d-flex">
+                            <p class="cardBanco__infoBack">This card is issued by NOVA BANK, its use is subject to the
+                                conditions established in the contract signed between the parties and must be returned
+                                to the institution upon request.</p>
+                            <img class="position-absolute end-0 bottom-0 p-2" src="./assets/img/cirrus.svg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cardBanco mt-5 create1" v-if="tipo == 'DEBIT'">
+                <div class="cardBanco__front cardBanco__part colorDebitGold"
+                    :class="{ colorDebitGold: color == 'GOLD', colorDebitSilver: color == 'SILVER', colorDebitTitanium: color == 'TITANIUM' }">
+                    <div class="d-flex gap-2">
+                        <span
+                            class="material-symbols-outlined fs-3 fw-bold text-light banco border border-2 border-danger p-2 rounded-4 bg-danger mb-2">account_balance</span>
+                        <p class="fs-4 fw-bold">Nova Bank</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="chip">
+                            <div class="chip-line"></div>
+                            <div class="chip-line"></div>
+                            <div class="chip-line"></div>
+                            <div class="chip-line"></div>
+                            <div class="chip-main"></div>
+                        </div>
+                        <p class="cardBanco_numer fw-bold" id='tarjeta.number'>**** **** **** ****
+                        </p>
+                    </div>
+                    <div class="cardBanco__space-40">
+                        <span class="cardBanco__label fw-bold">Card holder</span>
+                        <p class="cardBanco__info fw-bolder">{{nombreCompleto.slice(0, 10)}}</p>
+                    </div>
+                    <div class="cardBanco__space-25">
+                        <span class="cardBanco__label fw-bold">Valid thru</span>
+                        <p class="cardBanco__info fw-bolder">xx/xx</p>
+                    </div>
+                    <div class="d-flex flex-column">
+                        <img src="./assets/img/visa.svg" alt="Logo de Visa" class=" bg-light visa p-1 mt-2">
+                        <p class="text-center azulVisa">DEBIT</p>
+                    </div>
+                </div>
+                <div class="cardBanco__back cardBanco__part colorDebitGold"
+                    :class="{ colorDebitGold: color == 'GOLD', colorDebitSilver: color == 'SILVER', colorDebitTitanium: color == 'TITANIUM' }">
+                    <p class="cardBanco__lineaArriba">Customer support center: 0810-345-8252. From another country
+                        (5411)3984-8252
+                    </p>
+                    <div class="cardBanco__black-line"></div>
+                    <div class="cardBanco__back-content">
+                        <div class="cardBanco__secret">
+                            <p class="cardBanco__secret--last">xxx</p>
+                        </div>
+                        <div class="cardBanco__back-content d-flex">
+                            <p class="cardBanco__infoBack">This card is issued by NOVA BANK, its use is subject to the
+                                conditions established in the contract signed between the parties and must be returned
+                                to the institution upon request.</p>
+                            <img class="position-absolute end-0 bottom-0 p-2" src="./assets/img/cirrus.svg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </main>
+        <footer id="footer" class="d-flex flex-column justify-content-center align-items-around p-2">
+            <div class="d-flex justify-content-around align-items-center footer p-1 text-center">
+                <p class="text-light">Contacts us at <a href="mailto:nova@nova.com"
+                        class="text-danger text-decoration-none">nova@nova.com</a></p>
+                <p class="text-light "> © 2022 Nova Bank LLC. All rights reserved.</p>
+                <p class="text-light"><a href="#" class="text-danger text-decoration-none">Find us</a> or call us <a
+                        href="tel:(0212)247-52-85" class="text-danger text-decoration-none"><span
+                            class="telefono">(0212)</span>247-52-85</a></p>
+            </div>
+            <div class="ul d-flex justify-content-center align-items-center text-center">
+                <p class="li">
+                    <a href="https://www.facebook.com/" target="_blank" class="a">
+                        <i class="fab fa-facebook-f icon"></i> </a>
+                </p>
+                <p class="li">
+                    <a href="https://www.twitter.com/" target="_blank" class="a"><i class="fab fa-twitter icon"></i></a>
+                </p>
+                <p class="li">
+                    <a href="https://www.linkedin.com/" target="_blank" class="a"><i
+                            class="fab fa-linkedin-in icon"></i></a>
+                </p>
+            </div>
+        </footer>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+    <!--     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+ -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!--     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+ -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!--     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+ -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+    <script src="./assets/js/createCards.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
+    <title>Transfers</title>
+    <link rel="stylesheet" href="./assets/styles/style.css">
+    <link rel="stylesheet" href="./assets/styles/transfers.css">
+    <link rel="stylesheet" href="./assets/styles/accounts.css">
+</head>
+
+<body>
+    <div id="app">
+        <header class="sticky-top">
+            <nav class="navbar navbar-expand-lg nav-header color">
+                <div class="container-fluid color d-flex gap-3">
+                    <span class="material-symbols-outlined display-1 banco">account_balance</span>
+                    <a class="navbar-brand fs-3 fw-bolder titulo" href="./index.html">Nova Bank</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link fs-3 text-dark" href="./index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fs-3 text-dark" href="./accounts.html">Accounts</a>
+
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fs-3 text-dark" href="./cards.html">Cards</a>
+
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fs-3 fw-bolder" aria-current="page" id="active"
+                                    href="#">Transfers</a>
+                            </li>
+                            
+                        </ul>
+                        <div class="d-flex">
+                            <a class="contenedorIconos" href="./payments.html">
+                                <span class="material-symbols-outlined icono fs-2">payments</span>
+                                <p>Payments</p>
+                            </a>
+                            <a href="./index.html" class="contenedorIconos" @click="cerrarSesion">
+                                <span class="material-symbols-outlined icono fs-2">logout</span>
+                                <p>Logout</p>
+                            </a>
+                            <span class="navbar-text fs-5 text-light rounded-2 p-2 bg-dark align-self-center"
+                                v-cloak>{{horaActual()}}</span>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class="sectionTitulo colorInverso">
+            <a href="./accounts.html#cuentas" class="contenedorIconos">
+                <span class="material-symbols-outlined icono ">compare_arrows</span>
+                <p class="textoTitulo">Accounts</p>
+            </a>
+            <a href="./accounts.html#tarjetas" class="contenedorIconos">
+                <span class="material-symbols-outlined icono">credit_card</span>
+                <p class="textoTitulo">Cards</p>
+            </a>
+            <a href="./accounts.html#prestamos" class="contenedorIconos">
+                <span class="material-symbols-outlined icono">handshake</span>
+                <p class="textoTitulo">Loans</p>
+            </a>
+            <a href="./transfers.html" class="contenedorIconos">
+                <span class="material-symbols-outlined icono">sync_alt</span>                
+                <p class="textoTitulo">Transfers</p>
+            </a>
+            <a href="./createCards.html" class="contenedorIconos">
+                <span class="material-symbols-outlined icono">add_card</span>                
+                <p class="textoTitulo">NewCard</p>
+            </a>
+            <!-- <div class="contenedorIconos">
+                <span class="material-symbols-outlined icono">monitoring</span>
+                <p class="textoTitulo">Investments</p>
+            </div>
+            <a href="#" class="contenedorIconos">
+                <span class="material-symbols-outlined icono">contact_support</span>
+                <p class="textoTitulo">Support</p>
+            </a> -->
+        </div>
+        <main class="mainTransfers" id="inicio">
+            <img src="./assets/img/revenue_red.svg" class="imgTransf" alt="">
+            <h1 class="fw-bolder">Transfers</h1>
+            <div class="formularios m-1 w-100">
+
+                <form action="" class="">
+                    <fieldset class="">
+                        <label for="numberFrom" class="form-text fw-bolder text-dark">From account:</label>
+                        <select v-model="numberFrom" name="numberFrom" class="form-select " id="numberFrom">
+                            <template v-for="account of accounts">
+                                <option :value="account.number">{{account.number}}</option>
+                            </template>
+                        </select>
+                        <p v-if="numberFrom" class="bg-secondary m-2 rounded-3 text-light text-center p-1 fw-bold">
+                            Current balance: {{modificarSaldo(saldo())}}</p>
+                    </fieldset>
+                    <fieldset class="">
+                        <label for="destination" class="form-text fw-bolder text-dark">To account:</label>
+                        <select v-model="destination" class="form-select" name="destination" id="">
+                            <option value="3">Third party account</option>
+                            <option value="1">Own account</option>
+                        </select>
+                    </fieldset>
+                    <fieldset class="" v-if="destination == '1'">
+                        <label for="numberToOwn" class="form-text fw-bolder text-dark">To account:</label>
+                        <select v-model="numberTo" class="form-select" name="numberToOwn" id="">
+                            <template v-for="account of accounts">
+                                <option :value="account.number" v-if="account.number != numberFrom">{{account.number}}
+                                </option>
+                            </template>
+                        </select>
+                    </fieldset>
+                    <fieldset v-if="destination == '3'">
+                        <legend for="contact">Is it already in your contacts?</legend>
+                        <fieldset class="d-flex gap-2">
+                            <label class="" for="yes">Yes</label>
+                            <input class="" v-model="contact" type="radio" name="yes" id="yes" value="yes">
+                        </fieldset>
+                        <fieldset class="d-flex gap-2">
+                            <label class="" for="no">No</label>
+                            <input class="" v-model="contact" type="radio" name="no" id="no" value="no">
+                        </fieldset>
+                    </fieldset>
+                    <fieldset class="" v-if="contact == 'no'">
+                        <label for="numberTo" class="form-text text-dark fw-bolder">To account:</label>
+                        <input type="text" name="numberTo" class="form-control" id="numberTo" v-model="numberTo">
+                    </fieldset>
+                    <fieldset class="" v-if="contact == 'yes'">
+                        <label for="numberToR" class="form-text text-dark fw-bolder">To account:</label>
+                        <select v-model="numberTo" class="form-select" name="numberToR" id="">
+                            <template v-for="contact of contacts">
+                                <option :value="contact.accountNumber">{{contact.accountNumber}} ({{contact.nickname}})
+                                </option>
+                            </template>
+                        </select>
+                    </fieldset>
+                    <fieldset class="">
+                        <label for="amount" class="form-text fw-bolder text-dark">Amount</label>
+                        <input type="text" name="amount" id="amount" class="form-control" v-model="amount">
+                    </fieldset>
+                    <fieldset class="">
+                        <label for="description" class="form-text fw-bolder text-dark">Description</label>
+                        <textarea name="description" id="description" class="form-control"
+                            v-model="description"></textarea>
+
+                    </fieldset>
+                    <button type="submit" @click.prevent="crearTransacciones"
+                        class="btn btn-light mt-5 border border-2 border-secondary p-2 col-12">Send</button>
+                </form>
+
+
+
+
+                <form action="" class="" v-if="contact == 'no'">
+                    <legend>Here you can save your contact!</legend>
+                    <fieldset class="">
+                        <label for="accountNumber" class="form-text fw-bolder text-dark">Account number:</label>
+                        <input type="text" v-model="accountNumber" name="accountNumber" id="accountNumber"
+                            class="form-control">
+                    </fieldset>
+                    <fieldset class="">
+                        <label for="nickname" class="form-text fw-bolder text-dark">Nickname:</label>
+                        <input type="text" v-model="nickname" class="form-control" name="nickname" id="nickname">
+                    </fieldset>
+                    <fieldset class="">
+                        <label for="email" class="form-text fw-bolder text-dark">Contact's email address</label>
+                        <input type="email" v-model="emailContact" name="email" id="email" class="form-control">
+                    </fieldset>
+                    <button type="submit" @click.prevent="agendarContacto"
+                        class="btn btn-light mt-5 border border-2 border-secondary p-2 col-12">Save account</button>
+                </form>
+
+
+
+
+
+            </div>
+        </main>
+        <footer id="footer" class="d-flex flex-column justify-content-center align-items-around p-2">
+            <div class="d-flex justify-content-around align-items-center footer p-1 text-center">
+                <p class="text-light">Contacts us at <a href="mailto:nova@nova.com"
+                        class="text-danger text-decoration-none">nova@nova.com</a></p>
+                <p class="text-light "> © 2022 Nova Bank LLC. All rights reserved.</p>
+                <p class="text-light"><a href="#" class="text-danger text-decoration-none">Find us</a> or call us <a
+                        href="tel:(0212)247-52-85" class="text-danger text-decoration-none"><span
+                            class="telefono">(0212)</span>247-52-85</a></p>
+            </div>
+            <div class="ul d-flex justify-content-center align-items-center text-center">
+                <p class="li">
+                    <a href="https://www.facebook.com/" target="_blank" class="a">
+                        <i class="fab fa-facebook-f icon"></i> </a>
+                </p>
+                <p class="li">
+                    <a href="https://www.twitter.com/" target="_blank" class="a"><i class="fab fa-twitter icon"></i></a>
+                </p>
+                <p class="li">
+                    <a href="https://www.linkedin.com/" target="_blank" class="a"><i
+                            class="fab fa-linkedin-in icon"></i></a>
+                </p>
+            </div>
+        </footer>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!--     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+ -->
+    <!--     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+ -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+    <script src="./assets/js/transfers.js"></script>
+</body>
+
+</html>

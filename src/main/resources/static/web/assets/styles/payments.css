@@ -1,0 +1,13 @@
+.mainPayments {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5rem;
+    align-items: center;
+    min-height: 100vh;
+    background-image: linear-gradient(to bottom, #83EAF1, #63A4FF)
+}
+
+textarea {
+    resize: none;
+}
