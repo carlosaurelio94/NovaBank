@@ -37,7 +37,7 @@ public class PDFExportController {
     @Autowired
     ClientService clientService;
 
-
+/*
     @GetMapping("/pdf/generate")
     public void generatePDF(HttpServletResponse response, Authentication authentication, @RequestParam String number,
                             @RequestParam String dateFrom, @RequestParam String dateTo) throws IOException {
@@ -54,5 +54,5 @@ public class PDFExportController {
         LocalDate dateTo1 = LocalDate.parse(dateTo);
 
         this.pdfGeneratorService.export(response, email, number, dateFrom1, dateTo1);
-    }
+    }*/
 }

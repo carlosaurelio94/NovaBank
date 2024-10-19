@@ -22,7 +22,6 @@ import java.util.List;
 public class HomebankingApplication {
 
 
-
 	public static void main(String[] args) {
 		SpringApplication.run(HomebankingApplication.class, args);
 	}
@@ -120,6 +119,7 @@ public class HomebankingApplication {
 			transactionRepository.save(transaction12);
 
 			System.out.println(transaction1.toString());
+			System.out.println("CORRE CON http://localhost:8080/web/index.html");
 
 			Loan loan1 = new Loan("Mortgage", 500000, List.of(12,24,36,48,60), 1.4);
 			Loan loan2 = new Loan("Personal", 100000, List.of(6,12,24), 1.2);

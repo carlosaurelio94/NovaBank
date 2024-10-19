@@ -1,0 +1,18 @@
+services:
+  backend:
+    image: homebanking-back
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    #environment:
+  #postgres:
+   # image: postgre
+    #ports:
+     # - "5432:5432"
+    #environment:
+    #volumes:
+     # - postgres-data:/var/lib/postgresql/data
+#volumes:
+ # postgres-data:
