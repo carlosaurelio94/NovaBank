@@ -22,9 +22,9 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	runtimeOnly 'com.h2database:h2'
+	//runtimeOnly 'com.h2database:h2'
 	//h2 base de datos de prueba
-	//implementation 'org.postgresql:postgresql'
+	implementation 'org.postgresql:postgresql'
     implementation 'org.jetbrains:annotations:23.0.0'
 	implementation 'org.jetbrains:annotations:23.0.0'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
